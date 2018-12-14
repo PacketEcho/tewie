@@ -1,0 +1,308 @@
+html,
+body {
+    overflow-x: hidden; /* Prevent scroll on narrow devices */
+    font-weight: 300;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    font-display: swap;
+    font-family: $headings-font-stack;
+}
+
+h1, h2 {
+    margin: 2rem 0 1.5rem;
+}
+
+h1::before, h2::before, h3::before {
+    background: #767676;
+    content: "\020";
+    display: block;
+    height: 2px;
+    margin: 1rem 0;
+    width: 1em;
+}
+
+div, p, a, span, li, body {
+    font-display: swap;
+    font-family: $body-font-stack;
+}
+
+.brand-header {
+    background-color: transparent;
+}
+
+.site-title {
+    color: #ffffff !important;
+    font-family: $headings-font-stack !important;
+    font-size: 6rem;
+}
+
+/*--------------------------------------------------------------
+# Navbar
+--------------------------------------------------------------*/
+.navbar-nav li a {
+    text-transform: uppercase;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+    border-bottom: 5px solid transparent;
+}
+
+.navbar-dark .navbar-nav .active .nav-link {
+    border-bottom: 5px solid #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, 
+.navbar-dark .navbar-nav .nav-link:hover {
+    border-bottom: 5px solid hsla(0, 0%, 100%, .75);
+}
+
+@media (max-width: 767.98px) {
+    .navbar-dark {
+        background-color: $primary !important;
+    }
+}
+
+/*--------------------------------------------------------------
+# Backgrounds
+--------------------------------------------------------------*/
+.bg-default {
+    background-color: $bg1;
+}
+
+.bg-church {
+    background-color: $bg2;
+}
+
+.bg-council {
+    background-color: $bg3;
+}
+
+.bg-village {
+    background-color: $bg4;
+}
+
+.bg-village-hall {
+    background-color: $gray-300;
+}
+
+/*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+.section-news {
+    background-color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# Cards
+--------------------------------------------------------------*/
+.card-sidebar {
+    background-color: $bg5;
+
+    a {
+        color: #ffffff;
+    }
+}
+/*--------------------------------------------------------------
+# Misc
+--------------------------------------------------------------*/
+.badge-price {
+    @extend .badge-primary;
+    font-size: $font-size-lg;
+}
+
+.wpadverts-swipe > .wpadverts-slide-with-shadow {
+    background: none;
+}
+
+.wpdm_icon{
+    height: 30px; width: auto;
+}
+
+.pagination > li {
+    @extend .page-item;
+}
+
+.pagination > li > a {
+    @extend .page-link;
+}
+
+.wp-block-coblocks-author__heading {
+    display: none;
+}
+
+.entry-meta, .entry-footer {
+    font-size: 80%;
+    
+    a {
+        color: $text-muted;
+    }
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.copyright {
+    background-color: $gray-800;
+}
+
+.footer {
+    background-color: $gray-700;
+    color: #ffffff;
+
+    .nav-item .nav-link {
+        padding: 0;
+
+        &:hover {
+            color: #ffffff;
+        }
+    }
+
+    .btn-default {
+        background-color: #ffffff;
+        color: $gray-700;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #footer_admin {
+        text-align: left;
+    }
+}
+
+@media (min-width: 768px) {
+    #footer_admin {
+        text-align: right;
+    }
+}
+
+.socials-media ul {
+    display: inline-block;
+    float: none;
+
+    li {
+        float: left;
+        margin-left: 5px;
+        margin-right: 5px;
+
+        a {
+            color: #ffffff;
+            background: transparent;
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+.wpcf7-acceptance label input {
+    margin-right: 10px;
+}
+
+.wpcf7-response-output {
+    @extend .alert;
+}
+
+.wpcf7-mail-sent-ok {
+    @extend .alert-success;
+}
+
+.wpcf7-validation-errors {
+    @extend .alert-danger;
+}
+
+span.wpcf7-not-valid-tip {
+    @extend .text-danger;
+    @extend .small;
+}
+
+span .wpcf7-not-valid {
+    @extend .border-danger;
+}
+
+.screen-reader-response {
+    @extend .sr-only;
+}
+
+.wpcf7 .required {
+    display: none;
+}
+
+form .btn-light:not(:disabled):not(.disabled).active, 
+form .btn-light:not(:disabled):not(.disabled):active {
+    color: $gray-100;
+    background-color: $primary;
+    border-color: $primary;
+}
+
+form .btn-light {
+    color: $primary;
+    background-color: $gray-100;
+    border-color: $primary;
+}
+
+.button {
+    @extend .btn;
+}
+
+.button-primary {
+    @extend .btn-primary;
+}
+
+#simba_two_factor_auth input {
+    @extend .form-control;
+}
+
+/*--------------------------------------------------------------
+# Big Header
+--------------------------------------------------------------*/
+.site-header {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    // margin-top: 60px;
+    height: 350px;
+    background-position: center center;
+
+    a {
+        font-display: swap;
+        font-family: "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+        color: $headings-color;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+/*--------------------------------------------------------------
+# Move the admin bar to the bottom
+--------------------------------------------------------------*/
+body.admin-bar {
+	margin-top: -32px;
+	padding-bottom: 28px;
+}
+
+body.wp-admin #footer {
+	padding-bottom: 28px;
+}
+
+#wpadminbar {
+	top: auto !important;
+	bottom: 0;
+}
+
+#wpadminbar .quicklinks .ab-sub-wrapper {
+	bottom: 28px;
+}
+
+#wpadminbar .quicklinks .ab-sub-wrapper ul .ab-sub-wrapper {
+	bottom: -7px;
+}
