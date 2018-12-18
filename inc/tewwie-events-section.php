@@ -19,9 +19,7 @@ if ( ! function_exists( 'tewwie_events' ) ) :
 						?>
 					</div>
 				</div>
-				<?php
-				tewwie_events_content( $category, $posts_per_page, $include_excerpt );
-				?>
+				<?php tewwie_events_content( $category, $posts_per_page, $include_excerpt ); ?>
 			</div>
 		</section>
 		<?php
@@ -31,34 +29,23 @@ endif;
 
 if ( ! function_exists( 'tewwie_events_content' ) ) {
 	function tewwie_events_content( $category, $posts_per_page, $include_excerpt ) {
+		global $post;
+
 		$args = array(
-			'post_status'     => 'publish',
-			'post_type'       => array(TribeEvents::POSTTYPE),
-			'category_name'   => $category,
-			'posts_per_page'  => $posts_per_page
+			'eventDisplay'     	=> 'upcoming',
+			'tribe_events_cat'  => $category,
+			'posts_per_page'  	=> $posts_per_page
 		);
 
-		$get_posts = new WP_Query( $args );
+		$events = tribe_get_events( $args );
 
-		if ( $get_posts->have_posts() ) :
+		if ( !empty( $events ) ) {
 			echo '<div class="card-deck">';
-			while ( $get_posts->have_posts() ) :
-				$get_posts->the_post();
-				$categories = get_the_terms( $post, 'tribe_events_cat' );
-				if ( empty( $categories ) ) {
-					$category_bg = 'default';
-					$category_name = 'All';
-				}
-				else {
-					$cats = array();
-					foreach( $categories as $category ) {
-						$cats[] = '<a href="' . get_category_link($category->term_id) . '" class="text-muted">' . $category->name . '</a>';
-					}
-
-					$cat_bg = $categories[0];
-					$term = get_term( $cat_bg, $taxonomy );
-					$category_bg = $term->slug;
-				}
+			foreach ( $events as $post ) {
+				setup_postdata( $post );
+				$categories = wp_get_post_terms(get_the_id(), 'tribe_events_cat', array("fields" => "all"));
+				$category_bg = empty( $categories ) ? 'default' : $categories[0]->slug;
+				$all_day_event = tribe_event_is_all_day($post->ID);
 				$excerpt = get_the_excerpt();
 				?>
 				<div class="card bg-<?php echo $category_bg; ?> border-0" id="post-<?php the_ID(); ?>">
@@ -66,29 +53,44 @@ if ( ! function_exists( 'tewwie_events_content' ) ) {
 						<h4 class="card-title"><a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark">
 							<?php echo wp_kses( force_balance_tags( get_the_title() ), $allowed_html ); ?>
 						</a></h4>
-						<h6 class="card-subtitle mb-2 text-muted"><?php echo tribe_get_start_date(); ?>
-						<?php if ( tribe_get_start_date() != tribe_get_end_date() ) : ?>
-						- <?php echo tribe_get_end_date(); ?>
-						<?php endif; ?>
+						<h6 class="card-subtitle mb-2 text-muted">
+							<?php if ( tribe_get_start_date( null, false, 'Y-m-d' ) == tribe_get_end_date( null, false, 'Y-m-d' ) ) : ?>
+								<?php echo tribe_get_start_date( null, false, get_option( 'date_format' )); ?>
+								<?php if ( !$all_day_event ) : ?>
+								<br><?php echo tribe_get_start_date( null, false, 'H:i' ); ?>
+								- <?php echo tribe_get_end_date( null, false, 'H:i' ); ?>
+								<?php endif; ?>
+							<?php else : ?>
+								<?php $event_date_format = $all_day_event ? 'jS F Y' : 'jS F Y H:i'; ?>
+								<?php echo tribe_get_start_date( null, false, $event_date_format ); ?>
+								<br>to
+								<br><?php echo tribe_get_end_date( null, false, $event_date_format ); ?>
+							<?php endif; ?>
 						</h6>
 						<?php if ( ! empty( $excerpt ) && $include_excerpt ) : ?>
 						<p class="card-text"><?php echo $excerpt; ?></p>
 						<?php endif; ?>
-						<span class="small"><i class="fas fa-folder text-muted"></i> <?php echo implode(", ", $cats); ?></span>
+					</div>
+					<div class="card-footer bg-transparent border-top-0 text-center">
+						<?php if ( !empty( $categories ) && !is_wp_error( $categories ) ) : ?>
+							<span class="small text-muted"><i class="fas fa-folder text-muted"></i> 
+							<?php echo implode(', ', array_map(function ($category) { return $category->name; }, $categories)); ?>
+							</span>
+						<?php endif; ?>
 					</div>
 				</div>
 				<?php
-			endwhile;
-			echo '</div>';
-
-			wp_reset_postdata();
-		else : ?>
+				wp_reset_postdata();
+			}
+			echo '</div>';		
+		}
+		else { ?>
 			<div class="row">
 				<div class="col">
 					<div class="alert alert-primary" role="alert">No events</div>
 				</div>
 			</div>
 		<?php
-		endif;
+		}
 	}
 }
