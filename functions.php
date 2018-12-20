@@ -23,6 +23,7 @@ add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 function remove_plugin_scripts_and_styles() {
 	wp_dequeue_style( 'wp-block-library' );
 	wp_dequeue_style( 'wpdm-front' );
+	wp_dequeue_style( 'theme-my-login-css' );
 }
 add_action( 'wp_enqueue_scripts', 'remove_plugin_scripts_and_styles', 20 );
 
@@ -191,15 +192,6 @@ function tewwie_include_features() {
 	}
 }
 add_action( 'after_setup_theme', 'tewwie_include_features', 0 );
-
-// Disable TML update nag
-function filter_plugin_updates( $value ) {
-	if( isset( $value->response['theme-my-login/theme-my-login.php'] ) ) {
-		unset( $value->response['theme-my-login/theme-my-login.php'] );
-	}
-	return $value;
-}
-add_filter( 'site_transient_update_plugins', 'filter_plugin_updates' );
 
 /*
 	* Let WordPress manage the document title.
