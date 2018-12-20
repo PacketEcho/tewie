@@ -7,8 +7,8 @@
 get_header();
 
 ?>
-<?php do_action( 'tewwie_news_section', array('title' => "NEWS", 'posts_per_page' => 3) ); ?>
-<?php do_action( 'tewwie_events_section', array('title' => "EVENTS", 'posts_per_page' => 3, 'include_excerpt' => false) ); ?>
+<?php do_action( 'tewwie_news_section', array('title' => "NEWS", 'posts_per_page' => 3, 'category' => null) ); ?>
+<?php do_action( 'tewwie_events_section', array('title' => "EVENTS", 'posts_per_page' => 3, 'include_excerpt' => false, 'category' => null) ); ?>
 <div class="container" id="content" tabindex="-1">
 	<div class="row">
 		<div class="col content-area" id="primary">
