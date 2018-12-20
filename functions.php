@@ -2,21 +2,12 @@
 
 define( 'TEWWIE_PHP_INCLUDE', trailingslashit( get_stylesheet_directory() ) . 'inc/' );
 
-/**
- * Load custom WordPress nav walker.
- */
-// require get_stylesheet_directory() . '/inc/T5-wp-navwalker.php';
-// require get_stylesheet_directory() . '/inc/footer-navwalker.php';
-
 function understrap_remove_scripts() {
     wp_dequeue_style( 'understrap-styles' );
 	wp_deregister_style( 'understrap-styles' );
-	// wp_dequeue_style( 'contact-form-7' );
 
     wp_dequeue_script( 'understrap-scripts' );
     wp_deregister_script( 'understrap-scripts' );
-
-    // Removes the parent themes stylesheet and scripts from inc/enqueue.php
 }
 add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
@@ -24,17 +15,16 @@ function remove_plugin_scripts_and_styles() {
 	wp_dequeue_style( 'wp-block-library' );
 	wp_dequeue_style( 'wpdm-front' );
 	wp_dequeue_style( 'theme-my-login-css' );
+	wp_dequeue_style( 'font-awesome-icons-css' );
 }
-add_action( 'wp_enqueue_scripts', 'remove_plugin_scripts_and_styles', 20 );
+add_action( 'wp_enqueue_scripts', 'remove_plugin_scripts_and_styles', 1 );
 
 function theme_enqueue_styles() {
 	$the_theme = wp_get_theme();
 
 	wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/dist/tewwie.css', array(), time() );
-
-	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'popper-scripts', get_template_directory_uri() . '/js/popper.min.js', array(), false );
-    wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/child-theme.min.js', array(), $the_theme->get( 'Version' ), true );
+	wp_enqueue_script( 'popper-scripts', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', array(), false );
+    wp_enqueue_script( 'child-understrap-scripts', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array(), false );
 	wp_enqueue_script( 'tewwie-scripts', get_stylesheet_directory_uri() . '/js/tewwie.js', array(), false );
 	wp_enqueue_script( 'cookie-banner', get_stylesheet_directory_uri() . '/js/jquery.cookie-banner.min.js', array('jquery'), false );
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -42,19 +32,6 @@ function theme_enqueue_styles() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
-
-/**
- * Enqueue Google Fonts
- */
-// function custom_add_google_fonts() {
-// 	$query_args = array(
-// 		'family' => 'Open+Sans|Merriweather'
-// 	);
-
-// 	wp_register_style( 'google-fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
-// 	wp_enqueue_style( 'google-fonts' );
-// }
-// add_action( 'wp_enqueue_scripts', 'custom_add_google_fonts' );
 
 /**
  * Enqueue Font Awesome.
@@ -130,23 +107,6 @@ add_action( 'widgets_init', 'tewwie_widgets_init' );
 
 // Disable Contact Form 7 CSS
 add_filter( 'wpcf7_load_css', '__return_false' );
-
-if ( ! function_exists ( 'tewwie_setup' ) ) {
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 */
-	function tewwie_setup() {
-		$header_settings = apply_filters(
-			'custom_header_settings', array(
-				'height'      => 250,
-				'flex-height' => true,
-				'header-text' => false,
-			)
-		);
-		add_theme_support( 'custom-header', $header_settings );
-	}
-}
-add_action( 'after_setup_theme', 'tewwie_setup' );
 
 if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
 	/**
