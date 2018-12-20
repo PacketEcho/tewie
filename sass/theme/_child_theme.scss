@@ -168,17 +168,17 @@ div, p, a, span, li, body {
     }
 }
 
-@media (max-width: 767.98px) {
-    #footer_admin {
-        text-align: left;
-    }
-}
+// @media (max-width: 767.98px) {
+//     #footer_help {
+//         text-align: left;
+//     }
+// }
 
-@media (min-width: 768px) {
-    #footer_admin {
-        text-align: right;
-    }
-}
+// @media (min-width: 768px) {
+//     #footer_help {
+//         text-align: right;
+//     }
+// }
 
 .socials-media ul {
     display: inline-block;
@@ -259,6 +259,22 @@ form .btn-light {
 
 #simba_two_factor_auth input {
     @extend .form-control;
+}
+
+.tml > .form-check > label.tml-label {
+    @extend .form-check-label;
+}
+
+.tml-links {
+    @extend .list-inline;
+
+    li {
+        @extend .list-inline-item;
+
+        a {
+            @extend .btn, .btn-outline-primary;
+        }
+    }
 }
 
 /*--------------------------------------------------------------
