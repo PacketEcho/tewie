@@ -21,7 +21,7 @@ $the_theme = wp_get_theme();
 								<li><a href="https://www.facebook.com/groups/344747845713257/"><i class="fab fa-2x fa-facebook"></i></a></li>
 								<li><a href="https://twitter.com/dunstewonline"><i class="fab fa-2x fa-twitter"></i></a></li>
 								<li><a href="https://www.instagram.com/dunstewonline/"><i class="fab fa-2x fa-instagram"></i></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>/contact/"><i class="fas fa-2x fa-envelope-open"></i></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>/contact/"><i class="fas fa-2x fa-envelope"></i></a></li>
 							</ul>
 						</div>
 					</div><!-- /.col -->
@@ -40,7 +40,7 @@ $the_theme = wp_get_theme();
 						); ?>
 					</div><!-- /.col -->
 					<div id="footer_admin" class="col-md order-md-6">
-						<a href="https://goo.gl/maps/Xw4jgNYsGmm"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/location_map.jpg" alt="Duns Tew location map"></a>
+						<a href="https://goo.gl/maps/Xw4jgNYsGmm"><img src="./assets/img/location_map.jpg" alt="Duns Tew location map"></a>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
 			</div><!-- /.container -->

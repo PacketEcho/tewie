@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-	<meta charset=""UTF-8"">
+	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="mobile-web-app-capable" content="yes">
@@ -56,10 +56,10 @@
 			</nav><!-- .site-navigation -->
 		</div><!-- #wrapper-navbar end -->
 		<?php if ( get_header_image() ) : ?>
-			<div id="site-header" class="site-header d-none d-lg-block" style="background-image: url('<?php header_image(); ?>'); background-position: center center;">
+			<div id="site-header" class="site-header d-none d-lg-block" style="background-image: url('./assets/img/header_bg.jpg'); background-position: center center;">
 				<div class="row h-100 align-items-end">
 					<div class="col text-center">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title">Duns Tew</a>
 					</div>
 				</div>
 			</div>
