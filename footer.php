@@ -14,7 +14,7 @@ $the_theme = wp_get_theme();
 		<footer id="wrapper-footer" class="footer">
 			<div class="container">
 				<div class="row py-5">
-					<div id="footer_social" class="col-md order-md-6 text-center">
+					<div id="footer_social" class="col-md order-md-1">
 						<h5 class="text-light">Get in touch</h5>
 						<div class="socials-media">
 							<ul class="list-unstyled">
@@ -25,7 +25,7 @@ $the_theme = wp_get_theme();
 							</ul>
 						</div>
 					</div><!-- /.col -->
-					<div id="footer_help" class="col-md order-md-1">
+					<div id="footer_help" class="col-md order-md-6">
 						<h5 class="text-light">Help</h5>
 						<?php wp_nav_menu(
 							array(
@@ -39,26 +39,15 @@ $the_theme = wp_get_theme();
 							)
 						); ?>
 					</div><!-- /.col -->
-					<div id="footer_admin" class="col-md order-md-12">
-						<h5 class="text-light">Admin</h5>
-						<?php wp_nav_menu(
-							array(
-								'theme_location'  => 'footer_menu',
-								'container'       => 'ul',
-								'container_id'    => '',
-								'menu_class'      => 'list-unstyled',
-								'fallback_cb'     => '',
-								'menu_id'         => 'footer-menu',
-								'walker'          => new understrap_WP_Bootstrap_Navwalker(),
-							)
-						); ?>
+					<div id="footer_admin" class="col-md order-md-6">
+						<a href="https://goo.gl/maps/Xw4jgNYsGmm"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/location_map.jpg" alt="Duns Tew location map"></a>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
 			</div><!-- /.container -->
 			<div class="container-fluid copyright">
 				<div class="row pt-3">
 					<div class="col text-center">
-						<p>© <?php bloginfo( 'name' ); ?></p>
+						<p>© <a href="/wp-admin/" class="text-white">Duns Tew</a></p>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
 			</div><!-- /.container -->
