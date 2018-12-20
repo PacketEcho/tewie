@@ -51,7 +51,11 @@ if ( ! function_exists( 'tewwie_events_content' ) ) {
 				<div class="card bg-<?php echo $category_bg; ?> border-0" id="post-<?php the_ID(); ?>">
 					<div class="card-body text-center">
 						<h4 class="card-title"><a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark">
-							<?php echo wp_kses( force_balance_tags( get_the_title() ), $allowed_html ); ?>
+							<?php echo wp_kses( force_balance_tags( get_the_title() ), array(
+									'a' => array(
+										'href' => array(),
+									),
+							) ); ?>
 						</a></h4>
 						<h6 class="card-subtitle mb-2 text-muted">
 							<?php if ( tribe_get_start_date( null, false, 'Y-m-d' ) == tribe_get_end_date( null, false, 'Y-m-d' ) ) : ?>

@@ -38,17 +38,6 @@ if ( ! function_exists( 'tewwie_news_content' ) ) {
 
 		$loop = new WP_Query( $args );
 
-		$allowed_html = array(
-			'br'     => array(),
-			'em'     => array(),
-			'strong' => array(),
-			'i'      => array(
-				'class'  => array(),
-			),
-			'span'   => array(),
-		);
-
-
 		if ( $loop->have_posts() ) :
 			echo '<div class="row">';
 			while ( $loop->have_posts() ) :
@@ -56,9 +45,13 @@ if ( ! function_exists( 'tewwie_news_content' ) ) {
 				?>
 				<article id="post-<?php the_ID(); ?>" class="col-12">
 					<h3><a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark">
-							<?php echo wp_kses( force_balance_tags( get_the_title() ), $allowed_html ); ?>
+							<?php echo wp_kses( force_balance_tags( get_the_title() ), array(
+								'a' => array(
+									'href' => array(),
+								),
+							) ); ?>
 						</a></h3>
-					<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+					<?php echo get_the_post_thumbnail( get_the_ID(), 'large' ); ?>
 					<div class="entry-content">
 						<?php the_excerpt(); ?>
 						<?php
@@ -97,7 +90,7 @@ if ( ! function_exists( 'tewwie_news_content' ) ) {
 							echo implode(", ", $cats);
 							?>
 						</span>
-						<?php $post_tags = get_the_tags( $post->ID ); ?>
+						<?php $post_tags = get_the_tags( get_the_ID() ); ?>
 						<?php if ( $post_tags ) : ?>
 							<span class="tagged-as pr-3">
 								<span class="sr-only sr-only-focusable">Tagged as</span>
