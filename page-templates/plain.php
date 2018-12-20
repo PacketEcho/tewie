@@ -20,22 +20,22 @@ get_header();
 ?>
 <div class="container" id="content" tabindex="-1">
 	<div class="row">
-		<!-- Do the left sidebar check -->
-		<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
-		<main class="site-main" id="main">
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'loop-templates/content', 'page' ); ?>
-				<?php
+		<main class="site-main col" id="main">
+		<?php
+			while ( have_posts() ) :
+				the_post();
+
+				get_template_part( 'loop-templates/content', 'page' );
+
 				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
+				if ( comments_open() || get_comments_number() ) {
 					comments_template();
-				endif;
-				?>
-			<?php endwhile; // end of the loop. ?>
+				}
+
+			endwhile;
+		?>
 		</main><!-- #main -->
 	</div><!-- .row -->
-	<!-- Do the right sidebar check -->
-	<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
 </div><!-- .container -->
 
 <?php get_footer(); ?>

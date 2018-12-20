@@ -22,15 +22,19 @@ get_header();
 		<?php get_template_part( 'sidebar-templates/sidebar', 'right' ); ?>
 		<div class="col-md-8 order-md-1 content-area" id="primary">
 			<main class="site-main" id="main" role="main">
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'loop-templates/content', 'page' ); ?>
-					<?php
+			<?php
+				while ( have_posts() ) :
+					the_post();
+
+					get_template_part( 'loop-templates/content', 'page' );
+
 					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
+					if ( comments_open() || get_comments_number() ) {
 						comments_template();
-					endif;
-					?>
-				<?php endwhile; // end of the loop. ?>
+					}
+
+				endwhile;
+			?>
 			</main><!-- #main -->
 		</div><!-- #primary -->
 	</div><!-- .row -->

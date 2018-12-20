@@ -17,13 +17,17 @@ get_header();
 		<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
 		<main class="site-main pt-3" id="main">
         <h1>Search Results for: <?php echo get_search_query(); ?></h1>
-        <?php if ( have_posts() ) : ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'loop-templates/content', 'search' ); ?>
-            <?php endwhile; // end of the loop. ?>
-        <?php else : ?>
-            <?php get_template_part( 'loop-templates/content', 'none' ); ?>
-        <?php endif; ?>
+		<?php
+			if ( have_posts() ) :	
+				while ( have_posts() ) :
+					the_post();
+
+					get_template_part( 'loop-templates/content', 'search' );
+				endwhile;
+			else:
+				get_template_part( 'loop-templates/content', 'none' );
+			endif;
+		?>
 		</main><!-- #main -->
 	</div><!-- .row -->
 	<!-- Do the right sidebar check -->
