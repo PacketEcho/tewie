@@ -32,17 +32,20 @@
 				<a href="<?php echo esc_url( get_permalink() ); ?>" title="Last modified date" rel="bookmark"><time class="date updated" datetime="<?php echo esc_html( get_the_modified_time( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_modified_time( 'jS F Y' ) ); ?></time></a>
 			</span>
 		<?php endif; ?>
+		<?php $categories = get_the_category( $post->ID ); ?>
+		<?php if ( $categories ) : ?>
 		<span class="posted-in pr-3">
 			<span class="sr-only sr-only-focusable">Posted in</span>
 			<i class="fas fa-folder"></i> 
             <?php
             $cats = array();
-			foreach((get_the_category()) as $category) {
+			foreach( $categories as $category) {
                 $cats[] = '<a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>';
             }
             echo implode(", ", $cats);
 			?>
 		</span>
+		<?php endif; ?>
 		<?php $post_tags = get_the_tags( $post->ID ); ?>
 		<?php if ( $post_tags ) : ?>
 			<span class="tagged-as pr-3">
