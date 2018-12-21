@@ -56,7 +56,7 @@
 			</nav><!-- .site-navigation -->
 		</div><!-- #wrapper-navbar end -->
 		<?php if ( get_header_image() ) : ?>
-			<div id="site-header" class="site-header d-none d-lg-block" style="background-image: url('./assets/img/header_bg.jpg'); background-position: center center;">
+			<div id="site-header" class="site-header d-none d-lg-block">
 				<div class="row h-100 align-items-end">
 					<div class="col text-center">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title">Duns Tew</a>
