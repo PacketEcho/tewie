@@ -40,7 +40,7 @@ $the_theme = wp_get_theme();
 						); ?>
 					</div><!-- /.col -->
 					<div id="footer_admin" class="col-md order-md-6">
-						<a href="https://goo.gl/maps/Xw4jgNYsGmm"><img src="./assets/img/location_map.jpg" alt="Duns Tew location map"></a>
+						<a href="https://goo.gl/maps/Xw4jgNYsGmm"><img src="<?php echo site_url(); ?>/assets/img/location_map.jpg" alt="Duns Tew location map"></a>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
 			</div><!-- /.container -->
