@@ -23,8 +23,8 @@ function theme_enqueue_styles() {
 	$the_theme = wp_get_theme();
 
 	wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/dist/tewwie.css', array(), time() );
-	wp_enqueue_script( 'popper-scripts', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', array(), false );
-    wp_enqueue_script( 'child-understrap-scripts', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array(), false );
+	wp_enqueue_script( 'popper-scripts', "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js", array(), false );
+    wp_enqueue_script( 'child-understrap-scripts', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js', array(), false );
 	wp_enqueue_script( 'tewwie-scripts', get_stylesheet_directory_uri() . '/js/tewwie.js', array(), false );
 	wp_enqueue_script( 'cookie-banner', get_stylesheet_directory_uri() . '/js/jquery.cookie-banner.min.js', array('jquery'), false );
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
