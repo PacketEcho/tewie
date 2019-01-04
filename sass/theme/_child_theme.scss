@@ -123,11 +123,11 @@ div, p, a, span, li, body {
     height: 30px; width: auto;
 }
 
-.pagination > li {
+.pagination li {
     @extend .page-item;
 }
 
-.pagination > li > a {
+.pagination li a {
     @extend .page-link;
 }
 
