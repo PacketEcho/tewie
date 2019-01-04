@@ -38,7 +38,7 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
  */
 function custom_load_font_awesome() {
 
-    wp_enqueue_script( 'font-awesome-free', '//use.fontawesome.com/releases/v5.0.13/js/all.js', array(), null );
+    wp_enqueue_script( 'font-awesome-free', '//use.fontawesome.com/releases/v5.6.3/js/all.js', array(), null );
 
 }
 add_action( 'wp_enqueue_scripts', 'custom_load_font_awesome' );
