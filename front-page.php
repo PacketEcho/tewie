@@ -7,6 +7,7 @@
 get_header();
 
 ?>
+<?php do_action( 'tewwie_announcement_section', array('title' => "ANNOUNCEMENTS", 'posts_per_page' => 1) ); ?>
 <?php do_action( 'tewwie_news_section', array('title' => "NEWS", 'posts_per_page' => 5, 'category' => null) ); ?>
 <?php do_action( 'tewwie_events_section', array('title' => "EVENTS", 'posts_per_page' => 3, 'include_excerpt' => false, 'category' => null) ); ?>
 <div class="container" id="content" tabindex="-1">

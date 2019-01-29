@@ -30,6 +30,10 @@ div, p, a, span, li, body {
     font-family: $body-font-stack;
 }
 
+b, strong {
+    font-weight: bold;
+}
+
 .brand-header {
     background-color: transparent;
 }

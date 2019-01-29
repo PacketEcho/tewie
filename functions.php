@@ -132,6 +132,7 @@ function tewwie_filter_features( ) {
 	$files_to_load = array(
 		'tewwie-news-section',
 		'tewwie-events-section',
+		'tewwie-announcement-section',
 	);
 
 	return $files_to_load;
@@ -227,3 +228,120 @@ function child_theme_remove_page_template( $page_templates ) {
 	return $page_templates;
 }
 add_filter( 'theme_page_templates', 'child_theme_remove_page_template' );
+
+/**
+ * Template Parts with Display Posts Shortcode
+ * @author Bill Erickson
+ * @see https://www.billerickson.net/template-parts-with-display-posts-shortcode
+ *
+ * @param string $output, current output of post
+ * @param array $original_atts, original attributes passed to shortcode
+ * @return string $output
+ */
+function be_dps_template_part( $output, $original_atts ) {
+	// Return early if our "layout" attribute is not specified
+	if( empty( $original_atts['layout'] ) )
+		return $output;
+	ob_start();
+	get_template_part( 'partials/dps', $original_atts['layout'] );
+	$new_output = ob_get_clean();
+	if( !empty( $new_output ) )
+		$output = $new_output;
+	return $output;
+}
+add_action( 'display_posts_shortcode_output', 'be_dps_template_part', 10, 2 );
+
+/**
+ * Display only sticky posts
+ * @see https://displayposts.com/2019/01/09/display-or-hide-sticky-posts/
+ *
+ */
+function be_display_only_sticky_posts( $args, $atts ) {
+	$sticky_variations = array( 'sticky_posts', 'sticky-posts', 'sticky posts' );
+	if( !empty( $atts['id'] ) && in_array( $atts['id'], $sticky_variations ) ) {
+		$sticky_posts = get_option( 'sticky_posts' );
+		$args['post__in'] = $sticky_posts;
+	}
+	if( !empty( $atts['exclude'] ) && in_array( $atts['exclude'], $sticky_variations ) ) {
+		$sticky_posts = get_option( 'sticky_posts' );
+		$args['post__not_in'] = $sticky_posts;
+	}
+	
+	return $args;
+}
+add_filter( 'display_posts_shortcode_args', 'be_display_only_sticky_posts', 10, 2 );
+
+function simple_allowed_html() {
+
+	$allowed_tags = array(
+		'a' => array(
+			'class' => array(),
+			'href'  => array(),
+			'rel'   => array(),
+			'title' => array(),
+		),
+		'abbr' => array(
+			'title' => array(),
+		),
+		'b' => array(),
+		'blockquote' => array(
+			'cite'  => array(),
+		),
+		'cite' => array(
+			'title' => array(),
+		),
+		'code' => array(),
+		'del' => array(
+			'datetime' => array(),
+			'title' => array(),
+		),
+		'dd' => array(),
+		'div' => array(
+			'class' => array(),
+			'title' => array(),
+			'style' => array(),
+		),
+		'dl' => array(),
+		'dt' => array(),
+		'em' => array(),
+		'h1' => array(),
+		'h2' => array(),
+		'h3' => array(),
+		'h4' => array(),
+		'h5' => array(),
+		'h6' => array(),
+		'i' => array(),
+		'img' => array(
+			'alt'    => array(),
+			'class'  => array(),
+			'height' => array(),
+			'src'    => array(),
+			'width'  => array(),
+		),
+		'li' => array(
+			'class' => array(),
+		),
+		'ol' => array(
+			'class' => array(),
+		),
+		'p' => array(
+			'class' => array(),
+		),
+		'q' => array(
+			'cite' => array(),
+			'title' => array(),
+		),
+		'span' => array(
+			'class' => array(),
+			'title' => array(),
+			'style' => array(),
+		),
+		'strike' => array(),
+		'strong' => array(),
+		'ul' => array(
+			'class' => array(),
+		),
+	);
+	
+	return $allowed_tags;
+}
