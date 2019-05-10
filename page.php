@@ -47,6 +47,5 @@ get_header();
 </div><!-- .container -->
 
 <?php do_action( 'tewwie_news_section', array('title' => "NEWS", 'category' => $category, 'posts_per_page' => 5) ); ?>
-<?php do_action( 'tewwie_events_section', array('title' => "EVENTS", 'category' => $category, 'posts_per_page' => 3) ); ?>
 
 <?php get_footer(); ?>

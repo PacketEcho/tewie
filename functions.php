@@ -22,9 +22,10 @@ add_action( 'wp_enqueue_scripts', 'remove_plugin_scripts_and_styles', 1 );
 function theme_enqueue_styles() {
 	$the_theme = wp_get_theme();
 
-	wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/dist/tewwie.css', array(), time() );
-	wp_enqueue_script( 'popper-scripts', "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js", array(), false );
-    wp_enqueue_script( 'child-understrap-scripts', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js', array(), false );
+	wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/dist/tewwie.css', array(), '123' );
+	
+	wp_enqueue_script( 'popper-scripts', "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js", array(), false );
+    wp_enqueue_script( 'child-understrap-scripts', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array(), false );
 	wp_enqueue_script( 'tewwie-scripts', get_stylesheet_directory_uri() . '/js/tewwie.js', array(), false );
 	wp_enqueue_script( 'cookie-banner', get_stylesheet_directory_uri() . '/js/jquery.cookie-banner.min.js', array('jquery'), false );
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -131,7 +132,6 @@ add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
 function tewwie_filter_features( ) {
 	$files_to_load = array(
 		'tewwie-news-section',
-		'tewwie-events-section',
 		'tewwie-announcement-section',
 	);
 

@@ -18,7 +18,7 @@ $the_theme = wp_get_theme();
 						<h5 class="text-light">Get in touch</h5>
 						<div class="socials-media">
 							<ul class="list-unstyled">
-								<li><a href="https://www.facebook.com/groups/344747845713257/"><i class="fab fa-2x fa-facebook"></i></a></li>
+								<li><a href="https://www.facebook.com/dunstewonline/"><i class="fab fa-2x fa-facebook"></i></a></li>
 								<li><a href="https://twitter.com/dunstewonline"><i class="fab fa-2x fa-twitter"></i></a></li>
 								<li><a href="https://www.instagram.com/dunstewonline/"><i class="fab fa-2x fa-instagram"></i></a></li>
 								<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>/contact/"><i class="fas fa-2x fa-envelope"></i></a></li>
