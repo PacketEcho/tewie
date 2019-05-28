@@ -5,7 +5,6 @@
 **/
 
 $allowed_html = simple_allowed_html();
-
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>" class="clearfix">
     <h3><a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark">

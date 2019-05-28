@@ -4,7 +4,6 @@
  *
  * @package tewwie
  */
-$allowed_html = simple_allowed_html();
 
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>" class="clearfix">
@@ -13,7 +12,8 @@ $allowed_html = simple_allowed_html();
         </a></h3>
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 	<div class="entry-content clearfix">
-		<?php the_advanced_excerpt(); ?>
+		<?php the_advanced_excerpt() ?>
+		<a class="badge badge-primary" href="' . esc_url( get_permalink( get_the_ID() )) . '">Read More <i class="fas fa-angle-double-right"></i></a>
 		<?php
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . __( 'Pages:', 'tewwie' ),
