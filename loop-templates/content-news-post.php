@@ -4,6 +4,7 @@
  *
  * @package tewwie
  */
+$allowed_html = simple_allowed_html();
 
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>" class="clearfix">
@@ -12,7 +13,7 @@
         </a></h3>
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 	<div class="entry-content clearfix">
-		<?php the_excerpt(); ?>
+		<?php the_advanced_excerpt(); ?>
 		<?php
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . __( 'Pages:', 'tewwie' ),

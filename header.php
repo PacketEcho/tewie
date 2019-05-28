@@ -35,8 +35,6 @@
 	<meta name="msapplication-square150x150logo" content="<?php echo site_url(); ?>/mstile-150x150.png">
 	<meta name="msapplication-wide310x150logo" content="<?php echo site_url(); ?>/mstile-310x150.png">
 	<meta name="msapplication-square310x310logo" content="<?php echo site_url(); ?>/mstile-310x310.png">
-
-	<link href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans" rel="stylesheet"> 
 	<?php wp_head(); ?>
 </head>
 
@@ -80,7 +78,7 @@
 				<div class="row h-100 align-items-end">
 					<div class="col text-center">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title">
-							<img src="<?php echo site_url(); ?>/assets/img/site-logo.png" class="img-fluid" alt="Duns Tew logo">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/site-logo.png" class="img-fluid" alt="Duns Tew logo">
 						</a>
 					</div>
 				</div>

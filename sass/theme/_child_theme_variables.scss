@@ -32,9 +32,9 @@ $font-size-base: 1.375rem;
 $headings-color: rgb(68,68,68);
 $headings-font-weight: 300 !default;
 
-$headings-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-// $headings-font-stack: "Merriweather", Georgia, serif;
-$body-font-stack: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-// $body-font-stack: "Open Sans", Helvetica, Verdana, sans-serif;
+// $headings-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$headings-font-stack: "Playfair Display", Georgia, "Times New Roman", serif;
+// $body-font-stack: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+$body-font-stack: "Source Sans Pro", Helvetica, Verdana, sans-serif;
 
 $enable-responsive-font-sizes: true;

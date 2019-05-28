@@ -23,6 +23,7 @@ function theme_enqueue_styles() {
 	$the_theme = wp_get_theme();
 
 	wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/dist/tewwie.css', array(), '123' );
+	wp_enqueue_style( 'google-fonts', "https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:300,400&display=swap", array(), false );
 	
 	wp_enqueue_script( 'popper-scripts', "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js", array(), false );
     wp_enqueue_script( 'child-understrap-scripts', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array(), false );

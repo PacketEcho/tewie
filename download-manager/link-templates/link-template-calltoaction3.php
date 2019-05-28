@@ -1,5 +1,5 @@
 <!-- WPDM Link Template: custom Call To Action 3 Template -->
-<div class="row pb-1">
+<div class="row p-1">
     <div class="col-8">
         <a href="[download_url]">[icon] [title]</a>
     </div>

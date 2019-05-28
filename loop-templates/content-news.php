@@ -25,7 +25,7 @@
 	</div>
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 	<div class="entry-content clearfix">
-		<?php the_excerpt(); ?>
+		<?php the_advanced_excerpt(); ?>
 		<?php
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . __( 'Pages:', 'tewwie' ),
