@@ -1,12 +1,4 @@
-<?php
-/**
- * The template for displaying all single posts.
- *
- * @package understrap
- */
-
-get_header();
-?>
+<?php get_header(); ?>
 
 <div class="container" id="content" tabindex="-1">
 	<div class="row">
@@ -31,4 +23,5 @@ get_header();
 		<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
 	</div><!-- .row -->
 </div><!-- .container -->
+
 <?php get_footer(); ?>

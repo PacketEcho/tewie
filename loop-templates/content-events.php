@@ -1,10 +1,4 @@
 <?php
-/**
- * The template for events on the front page
- *
- * Used for front-page.
- */
-
 $categories = get_the_terms( $post, 'tribe_events_cat' );
 if ( empty( $categories ) ) {
     $category_bg = 'default';

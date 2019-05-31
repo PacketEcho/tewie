@@ -1,7 +1,5 @@
-<?php
+<?php get_header(); ?>
 
-get_header();
-?>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
 
@@ -23,4 +21,5 @@ get_header();
     </div><!-- .row -->
 </div><!-- .container-fluid -->
 <script src='<?php echo site_url(); ?>/assets/js/map.js'></script>
+
 <?php get_footer(); ?>

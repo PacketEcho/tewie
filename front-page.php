@@ -1,12 +1,6 @@
-<?php
-/**
- * The template for displaying the front page.
- *
- */
 
-get_header();
+<?php get_header(); ?>
 
-?>
 <?php do_action( 'tewwie_announcement_section', array('title' => "ANNOUNCEMENTS", 'posts_per_page' => 1) ); ?>
 <?php do_action( 'tewwie_news_section', array('title' => "NEWS", 'posts_per_page' => 5, 'category' => null) ); ?>
 <div class="container" id="content" tabindex="-1">

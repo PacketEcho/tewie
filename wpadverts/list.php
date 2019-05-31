@@ -1,16 +1,3 @@
-<?php
-/*
- * included by adverts/includes/shortcodes.php shortcodes_adverts_list()
- *
- * @var $loop WP_Query
- * @var $query string
- * @var $location string
- * @var $paged int
- */
-?>
-
-
-
 <?php if( $search_bar == "enabled" ): ?>
 <div class="adverts-options">
     <form action="<?php echo esc_attr( $action ) ?>" class="adverts-search-form" method="get">
