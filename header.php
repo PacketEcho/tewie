@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -44,7 +45,9 @@
 			<a class="skip-link sr-only sr-only-focusable" href="#content">Skip to content</a>
 			<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-transparent">
 				<div class="container" >
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="Duns Tew" itemprop="url" class="navbar-brand d-lg-none" rel="home">Duns Tew</a>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="Duns Tew" itemprop="url" class="navbar-brand d-lg-none" rel="home">
+					    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/nav-logo.png" width="32" height="32" alt=""> Duns Tew
+					</a>
 					<button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
