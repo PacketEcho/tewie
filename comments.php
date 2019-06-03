@@ -15,36 +15,13 @@
 if ( post_password_required() ) {
 	return;
 }
+$comments_number = get_comments_number();
+$comments_string = (1 === (int) $comments_number ? 'comment' : 'comments');
 ?>
 
 <div class="comments-area pt-3" id="comments">
 	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
-				$comments_number = get_comments_number();
-				if ( 1 === (int)$comments_number ) {
-					printf(
-						/* translators: %s: post title */
-						esc_html_x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'understrap' ),
-						'<span>' . get_the_title() . '</span>'
-					);
-				} else {
-					printf( // WPCS: XSS OK.
-						/* translators: 1: number of comments, 2: post title */
-						esc_html( _nx(
-							'%1$s thought on &ldquo;%2$s&rdquo;',
-							'%1$s thoughts on &ldquo;%2$s&rdquo;',
-							$comments_number,
-							'comments title',
-							'understrap'
-						) ),
-						number_format_i18n( $comments_number ),
-						'<span>' . get_the_title() . '</span>'
-					);
-				}
-			?>
-
-		</h2><!-- .comments-title -->
+		<h4><?php printf("%d %s", $comments_number, $comments_string);	?></h4>
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
 			<nav class="comment-navigation" id="comment-nav-above">
 				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'understrap' ); ?></h1>
@@ -58,14 +35,17 @@ if ( post_password_required() ) {
 				<?php } ?>
 			</nav><!-- #comment-nav-above -->
 		<?php endif; // check for comment navigation. ?>
-		<ol class="comment-list">
-			<?php
+		<ul class="list-unstyled">
+			<?php 
 			wp_list_comments( array(
-				'style'      => 'ol',
-				'short_ping' => true,
+				'style'         => 'ul',
+				'max_depth'     => 4,
+				'short_ping'    => true,
+				'avatar_size'   => '50',
+				'walker'        => new Bootstrap_Comment_Walker(),
 			) );
 			?>
-		</ol><!-- .comment-list -->
+		</ul><!-- .comment-list -->
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
 			<nav class="comment-navigation" id="comment-nav-below">
 				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'understrap' ); ?></h1>

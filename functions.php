@@ -134,6 +134,7 @@ function tewwie_filter_features( ) {
 	$files_to_load = array(
 		'tewwie-news-section',
 		'tewwie-announcement-section',
+		'wp-bootstrap-comments',
 	);
 
 	return $files_to_load;
