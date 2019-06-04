@@ -29,6 +29,7 @@
 	<link rel="icon" type="image/png" href="<?php echo site_url(); ?>/favicon-32x32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="<?php echo site_url(); ?>/favicon-16x16.png" sizes="16x16">
 	<link rel="icon" type="image/png" href="<?php echo site_url(); ?>/favicon-128.png" sizes="128x128">
+	<link rel="shortcut icon" href="<?php echo site_url(); ?>/favicon.ico">
 	<meta name="application-name" content="Duns Tew, Oxfordshire">
 	<meta name="msapplication-TileColor" content="#5E72E4">
 	<meta name="msapplication-TileImage" content="<?php echo site_url(); ?>/mstile-144x144.png">
