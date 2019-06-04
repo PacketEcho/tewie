@@ -28,7 +28,6 @@ function theme_enqueue_styles() {
 	wp_enqueue_script( 'popper-scripts', "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js", array(), false );
     wp_enqueue_script( 'child-understrap-scripts', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array(), false );
 	wp_enqueue_script( 'tewwie-scripts', get_stylesheet_directory_uri() . '/js/tewwie.js', array(), false );
-	wp_enqueue_script( 'cookie-banner', get_stylesheet_directory_uri() . '/js/jquery.cookie-banner.min.js', array('jquery'), false );
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
