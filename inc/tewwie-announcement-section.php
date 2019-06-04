@@ -17,27 +17,17 @@ if ( ! function_exists( 'tewwie_announce' ) ) {
 
 			if ( $the_query->have_posts() ) { ?>
 				<section class="section section-announce pt-3">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<?php
-								if ( ! empty( $title ) ) {
-									echo '<h2 class="display-4">' . wp_kses_post( $title ) . '</h2>';
-								}
-								?>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<?php 
-								while ( $the_query->have_posts() ) { 
-									$the_query->the_post();
-									get_template_part( 'loop-templates/content', 'news-post' );
-								} 
-								?>
-							</div>
-						</div>
-					</div>
+					<?php
+					if ( ! empty( $title ) ) {
+						echo '<h2 class="display-4">' . wp_kses_post( $title ) . '</h2>';
+					}
+					?>
+					<?php 
+					while ( $the_query->have_posts() ) { 
+						$the_query->the_post();
+						get_template_part( 'loop-templates/content', 'news-post' );
+					} 
+					?>
 				</section>
 			<?php wp_reset_postdata();
 			}
