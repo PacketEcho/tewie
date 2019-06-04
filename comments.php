@@ -73,11 +73,12 @@ $comments_string = (1 === (int) $comments_number ? 'comment' : 'comments');
 		  '<div class="form-group"><label for="author">' . __( 'Your name', 'domainreference' ) . '</label>' .
 		  '<input id="author" name="author" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
 		  '" aria-required="true" placeholder="Jane Smith" required></div>',
-
 		'email' =>
 		  '<div class="form-group"><label for="email">' . __( 'Your email', 'domainreference' ) . '</label>' .
 		  '<input id="email" name="email" class="form-control" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
 		  '" aria-required="true" placeholder="jane.smith@example.com" aria-describedby="emailHelp" required><small id="emailHelp" class="form-text text-muted">Your email address will not be published.</small></div>',
+		'cookies' => 
+			'<div class="form-check"><label for="wp-comment-cookies-consent"><input type="checkbox" required="" name="wp-comment-cookies-consent" id="wp-comment-cookies-consent" value="yes"' . $consent . ' class="form-check-input"> Save my name and email in a cookie for the next time I comment</label></div>',
 	  );
 
 	$comments_args = array(
