@@ -44,6 +44,16 @@ b, strong {
     font-size: 6rem;
 }
 
+h2 .display-4 {
+    font-size: 2.4rem;
+}
+
+@media (min-width: 768px) { 
+    h2 .display-4 {
+        font-size: 3.5rem;
+    }
+}
+
 /*--------------------------------------------------------------
 # Navbar
 --------------------------------------------------------------*/
@@ -194,18 +204,6 @@ b, strong {
         color: $gray-700;
     }
 }
-
-// @media (max-width: 767.98px) {
-//     #footer_help {
-//         text-align: left;
-//     }
-// }
-
-// @media (min-width: 768px) {
-//     #footer_help {
-//         text-align: right;
-//     }
-// }
 
 .socials-media ul {
     display: inline-block;
