@@ -4,7 +4,7 @@
 	<div class="row">
 		<!-- Do the left sidebar check -->
 		<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
-		<main class="site-main pt-3" id="main">
+		<main class="site-main pt-5" id="main">
 		<?php
 			while ( have_posts() ) :
 				the_post();
