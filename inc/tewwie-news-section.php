@@ -28,6 +28,7 @@ if ( ! function_exists( 'tewwie_news' ) ) {
 				} else { ?>
 					<div class="alert alert-primary" role="alert">No news</div>
 				<?php } ?>
+				<p><a href="<?php echo get_permalink(38); ?>" class="btn btn-lg btn-primary"><i class="fas fa-newspaper"></i> Older news</a></p>
 			</section>
 		<?php
 	}
